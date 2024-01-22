@@ -115,7 +115,11 @@ Dans **index.php** lorsque l'utilisateur clic sur le lien `Click`, il transmet �
 Notre URL ressemble à http://monsite.com/index.php?prenom=john&amp;mail=john@doe.com, le code affichera : Ton prénom est john et ton email est john@doe.com.
 
 > [!IMPORTANT]
-> `&amp;` est utilisé pour séparer les paramètres prenom et mail dans l’URL. Lorsque le navigateur voit `&amp;`, il le traduit en **&** avant de l’envoyer au serveur. Il faut utiliser `&amp;` au lieu de **&** pour des raisons de conformité avec la norme HTML. Si vous utilisez directement **&** ça pourrait entraîner des erreurs d'interprétation.
+> `&amp;` est utilisé pour séparer les paramètres prenom et mail dans l’URL. Lorsque le navigateur voit `&amp;`, il le traduit en **&** avant de l’envoyer au serveur. Il faut utiliser `&amp;` au lieu de **&** pour des raisons de conformité avec la norme HTML. Si vous utilisez directement **&** ça pourrait entraîner des erreurs d'interprétation.  
+>   
+> En HTML, certains caractères ont des rôles spécifiques. Par exemple, **&** débute une entité HTML, qui est une suite de caractères représentant un caractère spécial. Ainsi, `&lt;` correspond à < et `&gt;` à >. Ces entités permettent d’intégrer des caractères spéciaux dans le code HTML sans créer de confusion.  
+>   
+> **Source :** https://www.w3schools.com/html/html_entities.asp
 
 #### Méthode GET via un formulaire
 
