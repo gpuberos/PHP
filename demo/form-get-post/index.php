@@ -13,11 +13,11 @@
     
     <h2>Lien pour test methode GET à partir d'une URL</h2>
     <!-- Le GET commence par un ? &amp; pour échapper -->
-    <a href="mapage-getlink.php?prenom=guy&amp;mail=john@doe.com">Click</a>
+    <a href="mapage-getlink.php?prenom=john&amp;mail=john@doe.com">Click</a>
 
     
     <h2>Formulaire GET</h2>
-    <form action="mapage-post.php" method="post">
+    <form action="mapage-get.php" method="get">
         <input type="text" name="prenom" id="prenom">
         <input type="email" name="mail" id="mail">
         <input type="submit" value="Envoyer">
