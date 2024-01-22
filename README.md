@@ -102,7 +102,7 @@ On peut accéder à ces valeurs en utilisant la variable superglobale `$_GET`.
 Dans **index.php** lorsque l'utilisateur clic sur le lien `Click`, il transmet à la mapage-getlink.php les paramètres prenom et mail.
 
 **index.php**
-```php
+```html
 <a href="mapage-getlink.php?prenom=john&amp;mail=john@doe.com">Click</a>
 ```
 **mapage-getlink.php**
@@ -120,7 +120,7 @@ Notre URL ressemble à http://monsite.com/index.php?prenom=john&amp;mail=john@do
 #### Méthode GET via un formulaire
 
 **index.php**
-```php
+```html
 <h2>Formulaire GET</h2>
 <form action="mapage-get.php" method="get">
     <input type="text" name="prenom" id="prenom">
@@ -177,7 +177,7 @@ On peut accéder à ces valeurs en utilisant la variable superglobale `$_GET`.
 > La méthode `POST` envoie les données sous forme de paquet de données séparé, ce qui la rend plus sûre pour l’envoi de données sensibles, comme les mots de passe.
 
 **index.php**
-```php
+```html
 <h2>Formulaire POST</h2>
 <form action="mapage-post.php" method="post">
     <input type="text" name="prenom" id="prenom">
