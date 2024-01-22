@@ -49,7 +49,11 @@ try {
 `catch (\Throwable $th) { echo $th; }` : Le bloc **catch** attrape une exception de type `\Throwable` *(classe de base pour toutes les exceptions en PHP)*. Si l'exception est levée dans le bloc **try**, le **catch** sera exécuté. Dans ce cas, il affiche la valeur de l’exception **$th**. Dans notre cas, comme il n’y a pas d’erreur dans le **try**, le **catch** ne sera pas exécuté.
 
 > [!NOTE]
-> \Throwable est une interface de base pour toutes les exceptions et erreurs. Toutes les classes d'exception intégrées (telles que \Exception et \Error) implémentent cette interface, ce qui signifie qu'elles héritent des propriétés et des méthodes définies dans l'interface.
+> \Throwable est une interface de base pour toutes les exceptions et erreurs. Toutes les classes d'exception intégrées (telles que \Exception et \Error) implémentent cette interface, ce qui signifie qu'elles héritent des propriétés et des méthodes définies dans l'interface.  
+>   
+> **Sources :** 
+> - https://blog.eleven-labs.com/fr/php7-throwable-error-exception/
+> - https://www.php.net/manual/fr/class.throwable.php
 
 
 ### Exemple 2
