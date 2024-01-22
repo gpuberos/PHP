@@ -48,6 +48,10 @@ try {
 
 `catch (\Throwable $th) { echo $th; }` : Le bloc **catch** attrape une exception de type `\Throwable` *(classe de base pour toutes les exceptions en PHP)*. Si l'exception est levée dans le bloc **try**, le **catch** sera exécuté. Dans ce cas, il affiche la valeur de l’exception **$th**. Dans notre cas, comme il n’y a pas d’erreur dans le **try**, le **catch** ne sera pas exécuté.
 
+> [!NOTE]
+> \Throwable est une interface de base pour toutes les exceptions et erreurs. Toutes les classes d'exception intégrées (telles que \Exception et \Error) implémentent cette interface, ce qui signifie qu'elles héritent des propriétés et des méthodes définies dans l'interface.
+
+
 ### Exemple 2
 
 **[Voir le répertoire exemple](/demo/try-catch/)**
@@ -107,7 +111,7 @@ Dans **index.php** lorsque l'utilisateur clic sur le lien `Click`, il transmet �
 Notre URL ressemble à http://monsite.com/index.php?prenom=john&amp;mail=john@doe.com, le code affichera : Ton prénom est john et ton email est john@doe.com.
 
 > [!IMPORTANT]
-> `&amp;` est utilisé pour séparer les paramètres prenom et mail dans l’URL. Lorsque le navigateur voit **&amp;**, il le traduit en `&` avant de l’envoyer au serveur. Il faut utiliser **&amp;** au lieu de **&** pour des raisons de conformité avec la nortme HTML. Si vous utilisez directement **&** ça pourrait entraîner des erreurs d'interprétation.
+> `&amp;` est utilisé pour séparer les paramètres prenom et mail dans l’URL. Lorsque le navigateur voit `&amp;`, il le traduit en **&** avant de l’envoyer au serveur. Il faut utiliser `&amp;` au lieu de **&** pour des raisons de conformité avec la norme HTML. Si vous utilisez directement **&** ça pourrait entraîner des erreurs d'interprétation.
 
 #### Méthode GET via un formulaire
 
