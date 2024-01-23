@@ -12,7 +12,7 @@
 <h1>Les films Utopia</h1>
 
 <?php foreach($movies as $movie): ?>
-    <a href="mapage.php?id=<?= $film['id'] ?>"><?= $film['title'] ?></a>
+    <a href="datasheet.php?id=<?= $film['id'] ?>"><?= $film['title'] ?></a>
 <?php endforeach; ?>
 
 
