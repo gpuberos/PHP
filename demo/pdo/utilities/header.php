@@ -3,10 +3,10 @@
 // Etape de connexion à une base de données
 require dirname(__DIR__) . ('/config/config.php');
 
-// Tu vas me chercher dans le dossier fonction la fonction pour afficher le film par id
+// Fonction qui retourne la connexion à notre base de données
 require dirname(__DIR__) . ('/function/database.fn.php');
 
-// Tu vas me chercher dans le dossier fonction la fonction pour afficher le film par id
+// Fonctions pour afficher la totalité des films ou un film par id
 require dirname(__DIR__) . ('/function/movies.fn.php');
 
 $db = getPDOlink($config);
