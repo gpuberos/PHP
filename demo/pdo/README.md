@@ -23,8 +23,7 @@ INNER JOIN movie_language AS ml ON m.id = ml.movieID
 
 -- On joint la table language (alias l) à notre table jointe précédente. 
 -- On garde que les lignes où l’id de la langue dans la table movie_language correspond à l’id de la langue dans la table language
-JOIN language AS l ON ml.languageID = l.id 
-
+JOIN language AS l ON ml.languageID = l.id
 ```
   
 **Source :**  

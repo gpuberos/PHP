@@ -1,6 +1,6 @@
 <?php
-// Etape de connexion à une base de données
 
+// Etape de connexion à une base de données
 require dirname(__DIR__) . ('/config/config.php');
 
 // Tu vas me chercher dans le dossier fonction la fonction pour afficher le film par id
@@ -36,7 +36,7 @@ elseif (strpos($contact_page, $current_url) !== FALSE) :
 elseif (strpos($movie_page, $current_url) !== FALSE) :
     $movie = findMovieById($db, $_GET['id']);
     $title = $movie['title'];
-    
+
 endif;
 
 ?>

@@ -53,4 +53,3 @@ function findMovieById($db, $currentId)
     // On retourne la valeur $movie
     return $movie;
 }
-
