@@ -16,9 +16,6 @@ $index_name = 'Les films de la semaine';
 $movies_name = 'Tous les films à l\'affiche';
 $contact_name = 'Contactez-nous';
 
-// Correspond au nom du script, tout ce qui a après le nom de domaine c'est le script name
-$current_url = $_SERVER['SCRIPT_NAME'];
-
 // strpos() est une fonction PHP qui trouve la position de la première occurrence d’une sous-chaîne dans une chaîne. 
 // Si la sous-chaîne n’est pas trouvée, strpos() retourne FALSE
 // Donc, Si l'URL actuelle contient soit $index_page soit $index_page . 'index.php'
@@ -77,7 +74,7 @@ endif;
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4 col-12 justify-content-end">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="<?= $index_page; ?>">Accueil</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= $movies_page ?>">Les films</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= $movies_page; ?>">Les films</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contact</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

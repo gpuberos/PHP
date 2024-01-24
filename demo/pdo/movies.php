@@ -14,7 +14,7 @@
 <ul>
     <?php foreach ($movies as $movie) : ?>
         <li>
-            <a href="datasheet.php?id=<?= $movie['id'] ?>"><?= $movie['title'] ?></a>
+            <a href="datasheet.php?id=<?= $movie['id']; ?>"><?= $movie['title']; ?></a>
         </li>
     <?php endforeach; ?>
 </ul>
