@@ -8,7 +8,8 @@ $currentId = $_GET['id'];
 
 // Requête SQL pour sélectionner les informations du film dans la base de données pour un seul film.
 // Sélectionne les colonnes de la table movies qui contiennent les détails du film (titre, année de réalisation...)
-// On utilise GROUP_CONCAT pour regrouper les valeurs non Null d'un groupe en une chaîne de caractère dans notre cas les langues. Source : https://sql.sh/fonctions/group_concat
+// On utilise GROUP_CONCAT pour regrouper les valeurs non Null d'un groupe en une chaîne de caractère dans notre cas les langues. SEPARATOR permet de modifier le séparateur (mettre un espace à la virgule) 
+// Source : https://sql.sh/fonctions/group_concat
 // La clause WHERE spécifie le film que l'on souhaite sélectionner en utilisant son id, il sera récupéré via le $GET_ID dans notre URL et sera assigné à notre variable $currentId.
 $sql = "SELECT 
     m.id, 
@@ -20,7 +21,7 @@ $sql = "SELECT
     m.duration, 
     d.name AS director, 
     dc.name AS distributeur,
-    GROUP_CONCAT(l.name) AS languages
+    GROUP_CONCAT(l.name SEPARATOR ', ') AS languages
     FROM `movies` AS m 
     INNER JOIN director d ON m.directorID = d.id 
     INNER JOIN distribution_company dc ON m.companyID = dc.id
