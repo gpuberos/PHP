@@ -2,8 +2,8 @@
 
 Ce qu'il faut retenir pour la connexion à la BDD :
 1. On défini nos variables d'environnement
-2. - DSN de connexion (Data Server Name)
-3. - On tente de se connecter à la base de données
+2. DSN de connexion (Data Server Name)
+3. On tente de se connecter à la base de données
 
 ## Fonction GROUP_CONCAT (Concaténation)
   
