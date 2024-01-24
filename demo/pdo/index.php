@@ -1,15 +1,18 @@
 <?php
 
-// Inclut le contenu du fichier header.php (notre connexion bdd et en-tête HTML)
+// Inclut le contenu du fichier header.php (notre connexion bdd et en-tête HTML) :
 require('./header.php');
 
-// Requête SQL pour sélectionner toutes les informations des films dans la base de données.
+// On écrit la requête SQL pour sélectionner toutes les informations des films dans la base de données :
 $sql = "SELECT * FROM `movies`;";
 
-// Exécute la requête SQL sur la base de données
+// On exécute la requête SQL sur la base de données avec la méthode query :
+// Query() est une méthode de PDO qui prépare et exécute une requête SQL
+// https://www.php.net/manual/fr/pdo.query
+// Ca retourne un objet $sql (qui contient la requête SQL SELECT) qui est un objet PDOStatement
 $request = $db->query($sql);
 
-// Récupère le résultat de la requête SQL. Un tableau associatif contenant toutes les informations de tous les films.
+// On récupère le résultat de la requête SQL et on la stocke dans un tableau associatif contenant toutes les informations de tous les films :
 $movies = $request->fetchAll();
 
 ?>
