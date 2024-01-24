@@ -4,7 +4,7 @@
     require __DIR__ . ('/utilities/header.php');
 
     // Tu vas me chercher dans le dossier fonction la fonction pour afficher les films
-    require __DIR__ . ('/function/movies.fn.php');
+    // require __DIR__ . ('/function/movies.fn.php');
 
 ?>
 

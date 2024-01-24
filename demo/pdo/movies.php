@@ -3,9 +3,6 @@
     // Inclut le contenu du fichier header.php (notre connexion bdd et en-tête HTML) :
     require __DIR__ . ('/utilities/header.php');
 
-    // Tu vas me chercher dans le dossier fonction la fonction pour afficher les films
-    require __DIR__ . ('/function/movies.fn.php');
-
 ?>
 
 <h1>Les films Utopia</h1>
