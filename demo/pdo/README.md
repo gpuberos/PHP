@@ -191,6 +191,29 @@ Mettre le menu à droite dans bootstrap en ajoutant ceci à l'ul de la navbar.
 - Niveau 2 : adapter
 - Niveau 3 : transposer
 
+  
+## Mise en place des notes sous forme d'étoile :
 
+### Réflexion de base :
 
+Affichage de la note :
 
+Convertir la note avec une 1 5 étoiles, la note est en virgule est l'arrondir
+10 / 5  : 2
+
+https://www.php.net/manual/fr/function.round.php
+
+Afficher le nombre de div qui correspond à la note
+
+https://www.php.net/manual/fr/function.explode.php
+
+star (etoile vide), star-fill (etoile pleine), star-half (etoile à moitié)
+
+```php
+$starRating = round($movieRating/2);
+    for ($i=0; $i < $starRating ; $i++) { 
+        echo '<div class="bi-star-fill"></div>';
+}
+
+// $starRating = round($movie['rating']/2);
+```

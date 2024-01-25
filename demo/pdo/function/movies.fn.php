@@ -32,14 +32,16 @@ function findMovieById($db, $currentId)
     m.rating, 
     m.year_released, 
     m.box_office, 
-    m.budget, 
+    m.budget,
     m.duration, 
+    g.name AS genre,
     d.name AS director, 
     dc.name AS distributeur,
     GROUP_CONCAT(l.name SEPARATOR ', ') AS languages
     FROM `movies` AS m 
     INNER JOIN director d ON m.directorID = d.id 
     INNER JOIN distribution_company dc ON m.companyID = dc.id
+    INNER JOIN genre g ON m.genreID = g.id
     INNER JOIN movie_language AS ml ON m.id = ml.movieID
     JOIN language AS l ON ml.languageID = l.id 
     WHERE m.id = $currentId";
@@ -66,4 +68,21 @@ function findPictureByMovie($db, $currentId)
 
     // On retourne la valeur $movie
     return $picture;
+}
+
+function getStar($rating)
+{
+
+    $starRating = round($rating / 2, 1);
+    $ratingInt = explode(".", $starRating);
+
+    for ($i = 0; $i < $ratingInt[0]; $i++) {
+        echo '<div class="bi-star-fill"></div>';
+    }
+    if ($ratingInt[1] != 0) {
+        echo '<div class="bi-star-half"></div>';
+    }
+    if (5 - $starRating >= 1) {
+        echo '<div class="bi-star"></div>';
+    }
 }
