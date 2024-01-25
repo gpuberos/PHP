@@ -112,25 +112,21 @@ Version originale de 'PATH_INFO' avant d'être analysée par PHP.
 - https://stackoverflow.com/questions/14823495/wamp-showing-absolute-path-when-echoing-dirname-file
 
 
-## Information annexe :
-  
-**Note à compléter**
-  
-Mettre le menu à droite dans bootstrap
-<ul class="col-12 justify-content-end">
-  
-**Explication** des niveaux dans les Briefs :
-- Niveau 1 : immiter
-- Niveau 2 : adapter
-- Niveau 3 : transposer
-
 ## require et require_once
 
-require et require_once je ne l'importe qu'une seule fois.
+**require** et **require_once** sont deux fonctions en PHP qui sont utilisées pour inclure un fichier dans un autre.
+ 
+- `require` : Cette fonction est utilisée pour inclure un fichier PHP dans un autre, indépendamment du fait que le fichier ait déjà été inclus ou non. Si le fichier spécifié n’est pas trouvé, require génère une **erreur fatale et le script s’arrête**.
+- `require_once` : Cette fonction est identique à require, mais elle vérifie d’abord si le fichier a déjà été inclus et, si c’est le cas, elle ne l’inclut pas à nouveau. Cela signifie que require_once n’inclura le fichier qu’une seule fois, même s’il est inclus plusieurs fois dans le même script.
+
+Utilisez `require` lorsque vous voulez **inclure un fichier plusieurs fois**, et `require_once` lorsque vous voulez vous assurer qu’un **fichier est inclus une seule fois** dans votre script.
+
+**Source :**  
+- https://www.geeksforgeeks.org/difference-between-require-and-require_once-in-php/
 
 ## Différence entre include et require
 
-include affiche le reste execute quand meme s'il y a une erreur. Tandis qu'avec le require il arrête d'executer le code.
+On utilise `include` lorsqu'on souhaite que l’exécution du code continue même si le fichier inclus est manquant, et on utilise `require` lorsqu'on souhaite que le script s’arrête si le fichier inclus est manquant.
 
 ## HEADER
 
@@ -165,4 +161,17 @@ if (!isset($_GET['id']) || empty($movie['id'])) {
 **Source :** 
 - https://www.php.net/manual/fr/function.header
 - https://www.php.net/manual/fr/function.isset
-- 
+- https://www.php.net/manual/fr/function.empty
+  
+  
+## Information annexe :
+  
+**Note à compléter**
+  
+Mettre le menu à droite dans bootstrap
+<ul class="col-12 justify-content-end">
+  
+**Explication** des niveaux dans les Briefs :
+- Niveau 1 : immiter
+- Niveau 2 : adapter
+- Niveau 3 : transposer
