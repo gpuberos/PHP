@@ -123,3 +123,46 @@ Mettre le menu à droite dans bootstrap
 - Niveau 1 : immiter
 - Niveau 2 : adapter
 - Niveau 3 : transposer
+
+## require et require_once
+
+require et require_once je ne l'importe qu'une seule fois.
+
+## Différence entre include et require
+
+include affiche le reste execute quand meme s'il y a une erreur. Tandis qu'avec le require il arrête d'executer le code.
+
+## HEADER
+
+Faire une redirection vers l'accueil
+
+```php
+// Si je n'ai pas d'id dans l'URL OU que $movie['id'] = NULL (vide)
+if (!isset($_GET['id']) || empty($movie['id'])) {
+    // On fait une redirection
+    // https://www.php.net/manual/fr/function.header
+    header("location : /");
+} else {
+    // Stocke moi le nom du film
+    $title = $movie['title'];
+}
+```
+**Explication** :  
+  
+- `if (!isset($_GET['id']) || empty($movie['id']))`: 
+  **Cette ligne vérifie deux conditions :**
+  - `!isset($_GET['id'])` : Vérifie si l’identifiant du film (id) n’est pas défini dans l’URL. `$_GET['id']` récupère la valeur de **id** dans l’URL (ex: dans www.example.com/?id=1234, `$_GET['id']` serait 1234).
+  - `empty($movie['id'])` : Vérifie si l’identifiant du film (id) dans le tableau `$movie` est vide.
+    - `header("location : /")`: Si l’une des conditions ci-dessus est vraie (c’est-à-dire, si l’identifiant du film n’est pas défini ou est vide), alors cette ligne redirige l’utilisateur vers la page d’accueil (/).
+    - `else`: Si aucune des conditions ci-dessus n’est vraie (c’est-à-dire, si l’identifiant du film est défini et n’est pas vide), alors le code dans ce bloc else est exécuté.
+    - `$title = 'Détails du film : ' . $movie['title']`: Cette ligne stocke le titre du film dans la variable `$title`. `$movie['title']` récupère le titre du film à partir du tableau $movie.
+
+**En résumé :**  
+
+**SI** l'id n'existe pas (isset) **OU** s'il est vide (empty) **ALORS** tu me rediriges vers la page d'accueil **SINON** tu m'affiches le titre du film.
+
+
+**Source :** 
+- https://www.php.net/manual/fr/function.header
+- https://www.php.net/manual/fr/function.isset
+- 

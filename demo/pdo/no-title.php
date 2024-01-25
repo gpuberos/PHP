@@ -1,7 +1,7 @@
 <?php
 
     // Inclut le contenu du fichier header.php (notre connexion bdd et en-tête HTML) :
-    require __DIR__ . ('/utilities/header.php');
+    require_once __DIR__ . ('/utilities/header.php');
 
 ?>
 
