@@ -27,9 +27,17 @@ if (!isset($_GET['id']) || empty($movie['id'])) {
 // Inclut le contenu du fichier header.php (notre connexion bdd et en-tête HTML)
 require_once __DIR__ . ('/utilities/header.php');
 
+// On stocke dans $picture la requête
+$picture = findPictureByMovie($db, $_GET['id']);
+
+// On stocke le chemin de l'image
+$path = $picture['pathImg'];
+
 ?>
 
 <h1>Détails du film</h1>
+
+<img src="<?= $path; ?>" alt="<?= $movie['title']; ?>">
 
 <!-- Affiche les informations du film. -->
 <h2><?= $movie['title']; ?></h2>

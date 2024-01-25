@@ -53,3 +53,17 @@ function findMovieById($db, $currentId)
     // On retourne la valeur $movie
     return $movie;
 }
+
+function findPictureByMovie($db, $currentId)
+{
+    $sql = "SELECT * FROM `picture` WHERE movieId = $currentId";
+
+    // Exécute la requête SQL sur la base de données
+    $request = $db->query($sql);
+
+    // Récupère le résultat de la requête SQL dans un tableau associatif contenant les informations du film.
+    $picture = $request->fetch();
+
+    // On retourne la valeur $movie
+    return $picture;
+}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 24 jan. 2024 à 06:58
+-- Généré le : jeu. 25 jan. 2024 à 16:05
 -- Version du serveur : 8.2.0
 -- Version de PHP : 8.2.13
 
@@ -224,6 +224,57 @@ INSERT INTO `movie_language` (`movieID`, `languageID`) VALUES
 (14, 4),
 (15, 2);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `picture`
+--
+
+DROP TABLE IF EXISTS `picture`;
+CREATE TABLE IF NOT EXISTS `picture` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `pathImg` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `movieId` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `movieId` (`movieId`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `picture`
+--
+
+INSERT INTO `picture` (`id`, `pathImg`, `movieId`) VALUES
+(1, '/assets/img/pictures/les_evades.jpg', 1),
+(2, '/assets/img/pictures/godfather.png', 2),
+(3, '/assets/img/pictures/darkknight.jpg', 3),
+(4, '/assets/img/pictures/godfather2.webp', 4),
+(5, '/assets/img/pictures/12angrymen.png', 5),
+(6, '/assets/img/pictures/shindlerslist.webp', 6),
+(7, '/assets/img/pictures/lordofringsking.jpg', 7),
+(8, '/assets/img/pictures/pulp_fiction.jpg', 8),
+(9, '/assets/img/pictures/lordofringsring.jpg', 9),
+(10, '/assets/img/pictures/goodbadugly.jpg', 10),
+(11, '/assets/img/pictures/runforrestrun.jpg', 11),
+(12, '/assets/img/pictures/intouchables.jpg', 12),
+(13, '/assets/img/pictures/silenceoflambs.png', 13),
+(14, '/assets/img/pictures/inglorius.jpg', 14),
+(15, '/assets/img/pictures/laviedadele.jpg', 15),
+(16, '/assets/img/pictures/les_evades.jpg', 1),
+(17, '/assets/img/pictures/godfather.png', 2),
+(18, '/assets/img/pictures/darkknight.jpg', 3),
+(19, '/assets/img/pictures/godfather2.webp', 4),
+(20, '/assets/img/pictures/12angrymen.png', 5),
+(21, '/assets/img/pictures/shindlerslist.webp', 6),
+(22, '/assets/img/pictures/lordofringsking.jpg', 7),
+(23, '/assets/img/pictures/pulp_fiction.jpg', 8),
+(24, '/assets/img/pictures/lordofringsring.jpg', 9),
+(25, '/assets/img/pictures/goodbadugly.jpg', 10),
+(26, '/assets/img/pictures/runforrestrun.jpg', 11),
+(27, '/assets/img/pictures/intouchables.jpg', 12),
+(28, '/assets/img/pictures/silenceoflambs.png', 13),
+(29, '/assets/img/pictures/inglorius.jpg', 14),
+(30, '/assets/img/pictures/laviedadele.jpg', 15);
+
 --
 -- Contraintes pour les tables déchargées
 --
@@ -242,6 +293,12 @@ ALTER TABLE `movies`
 ALTER TABLE `movie_language`
   ADD CONSTRAINT `movie_language_ibfk_1` FOREIGN KEY (`movieID`) REFERENCES `movies` (`id`),
   ADD CONSTRAINT `movie_language_ibfk_2` FOREIGN KEY (`languageID`) REFERENCES `language` (`id`);
+
+--
+-- Contraintes pour la table `picture`
+--
+ALTER TABLE `picture`
+  ADD CONSTRAINT `picture_ibfk_1` FOREIGN KEY (`movieId`) REFERENCES `movies` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

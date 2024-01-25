@@ -1,0 +1,16 @@
+INSERT INTO `picture` (`id`, `pathImg`, `movieId`) VALUES 
+(NULL, '/assets/img/pictures/les_evades.jpg', '1'), 
+(NULL, '/assets/img/pictures/godfather.png', '2'), 
+(NULL, '/assets/img/pictures/darkknight.jpg', '3'), 
+(NULL, '/assets/img/pictures/godfather2.webp', '4'), 
+(NULL, '/assets/img/pictures/12angrymen.png', '5'), 
+(NULL, '/assets/img/pictures/shindlerslist.webp', '6'), 
+(NULL, '/assets/img/pictures/lordofringsking.jpg', '7'), 
+(NULL, '/assets/img/pictures/pulp_fiction.jpg', '8'), 
+(NULL, '/assets/img/pictures/lordofringsring.jpg', '9'), 
+(NULL, '/assets/img/pictures/goodbadugly.jpg', '10'), 
+(NULL, '/assets/img/pictures/runforrestrun.jpg', '11'), 
+(NULL, '/assets/img/pictures/intouchables.jpg', '12'), 
+(NULL, '/assets/img/pictures/silenceoflambs.png', '13'), 
+(NULL, '/assets/img/pictures/inglorius.jpg', '14'), 
+(NULL, '/assets/img/pictures/laviedadele.jpg', '15');

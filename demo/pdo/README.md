@@ -90,9 +90,10 @@ On met le dirname uniquement quand le fichier est dans un répertoire à la raci
 
 Pour échapper un caractère il met 2 `\\`. 
 
-https://www.php.net/manual/fr/language.constants.magic.php
+**Source :**  
+- https://www.php.net/manual/fr/language.constants.magic.php
 
-
+  
 **Variables Globales sont globalement déjà incluse dans PHP :**
 
 ```php
@@ -156,22 +157,40 @@ if (!isset($_GET['id']) || empty($movie['id'])) {
 **En résumé :**  
 
 **SI** l'id n'existe pas (isset) **OU** s'il est vide (empty) **ALORS** tu me rediriges vers la page d'accueil **SINON** tu m'affiches le titre du film.
-
-
+  
 **Source :** 
 - https://www.php.net/manual/fr/function.header
 - https://www.php.net/manual/fr/function.isset
 - https://www.php.net/manual/fr/function.empty
   
   
+## Ajout affiche film dans BDD
+
+```sql
+CREATE TABLE `dbmovie_utopia`.`picture` (
+`id` INT NOT NULL AUTO_INCREMENT , 
+`pathImg` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL , 
+`movieId` INT NOT NULL , PRIMARY KEY (`id`)
+) ENGINE = InnoDB;
+```
+  
+Depuis PHPMyAdmin mettre Index sur le movieId de la table picture sinon on ne pourra pas faire la relation ONE to MANY entre l'id PRIMARY de table movies vers la FOREIGN KEY movieId de la table picture.
+
+  
 ## Information annexe :
   
 **Note à compléter**
   
-Mettre le menu à droite dans bootstrap
+Mettre le menu à droite dans bootstrap en ajoutant ceci à l'ul de la navbar.
+```html
 <ul class="col-12 justify-content-end">
-  
+```
+
 **Explication** des niveaux dans les Briefs :
 - Niveau 1 : immiter
 - Niveau 2 : adapter
 - Niveau 3 : transposer
+
+
+
+
