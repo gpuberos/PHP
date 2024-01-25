@@ -40,6 +40,7 @@ elseif (strpos($movie_page, $current_url) !== FALSE) :
     // Tu vas me chercher dans le header le require vers ('/function/movies.fn.php') 
     // qui contient la fonction pour afficher le film par Id
     $movie = findMovieById($db, $_GET['id']);
+    // Alors on définit le titre de la page comme $movie['title']
     $title = $movie['title'];
 
 endif;
