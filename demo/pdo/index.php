@@ -1,10 +1,10 @@
 <?php
 
-    // Inclut le contenu du fichier header.php (notre connexion bdd et en-tête HTML) :
-    require __DIR__ . ('/utilities/header.php');
+// Inclut le contenu du fichier header.php (notre connexion bdd et en-tête HTML) :
+require __DIR__ . ('/utilities/header.php');
 
-    // Tu vas me chercher dans le header le require vers ('/function/movies.fn.php') qui contient la fonction pour afficher les films
-    $movies = findAllMovies($db);
+// Tu vas me chercher dans le header le require vers ('/function/movies.fn.php') qui contient la fonction pour afficher les films
+$movies = findAllMovies($db);
 
 ?>
 
@@ -14,7 +14,7 @@
 <ul>
     <?php foreach ($movies as $movie) : ?>
         <li>
-            <a href="datasheet.php?id=<?= $movie['id']; ?>"><?= $movie['title']; ?></a>
+            <a href="<?= $movie_page; ?>?id=<?= $movie['id']; ?>"><?= $movie['title']; ?></a>
         </li>
     <?php endforeach; ?>
 </ul>
