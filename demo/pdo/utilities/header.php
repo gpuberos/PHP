@@ -20,10 +20,16 @@ $contact_name = 'Contactez-nous';
 // Si la sous-chaîne n’est pas trouvée, strpos() retourne FALSE
 // Donc, Si l'URL actuelle contient soit $index_page soit $index_page . 'index.php'
 if (strpos($index_page, $current_url) !== FALSE || strpos($index_page . 'index.php', $current_url) !== FALSE) :
+    // Tu vas me chercher dans le header le require vers ('/function/movies.fn.php') 
+    // qui contient la fonction pour afficher les films
+    $movies = findAllMovies($db);
     // Alors on définit le titre de la page comme $index_name
     $title = $index_name;
 // Sinon, si l'URL actuelle contient $movies_page
 elseif (strpos($movies_page, $current_url) !== FALSE) :
+    // Tu vas me chercher dans le header le require vers ('/function/movies.fn.php') 
+    // qui contient la fonction pour afficher les films
+    $movies = findAllMovies($db);
     // Alors on définit le titre de la page comme $movies_name
     $title = $movies_name;
 // Sinon, si l'URL actuelle contient $contact_page
