@@ -1,3 +1,27 @@
+<?php
+
+$movie = findMovieById($db, $_GET['id']);
+
+// Si je n'ai pas d'id dans l'URL OU que $movie['id'] = NULL (vide)
+if (!isset($_GET['id']) || empty($movie['id'])) {
+    // On fait une redirection
+    header("Location: /");
+} else {
+    // Stocke moi le nom du film
+    $title = 'Détails du film : ' . $movie['title'];
+}
+
+// Version ternaire :
+// !isset($_GET['id']) || empty($movie['id']) ? header("Location: /") : $title = 'Détails du film : ' . $movie['title'];
+
+// On stocke dans $picture la requête
+$picture = findPictureByMovie($db, $_GET['id']);
+
+// On stocke le chemin de l'image
+$path = $picture['pathImg'];
+
+?>
+
 <div class="card col-10 mx-auto my-2">
     <!-- Product image-->
     <img class="card-img-top" src="<?= $path; ?>" alt="<?= $movie['title']; ?>" />

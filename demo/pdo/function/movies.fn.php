@@ -108,7 +108,7 @@ function getStar($rating)
     }
 
     // Affiche des étoiles vides jusqu'à atteindre un total de 5 étoiles.
-    for ($i = 0; $i < 5 -  $starNbr++; $i++) {
+    for ($i = 0; $i < 5 - $starNbr++; $i++) {
         // Affiche une étoile vide.
         echo '<div class="bi-star"></div>';
     }
@@ -137,9 +137,9 @@ function findAllMoviesByGenre($db, $genre)
     return $movies;
 }
 
-function findBestMovies($db)
+function findBestMovies($db , $limit)
 {
-    $sql = "SELECT * FROM `movies` ORDER BY `rating` DESC LIMIT 3;";
+    $sql = "SELECT * FROM `movies` ORDER BY `rating` DESC LIMIT $limit;";
 
     // On exécute la requête SQL sur la base de données avec la méthode query :
     $request = $db->query($sql);

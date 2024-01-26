@@ -6,12 +6,10 @@ require_once __DIR__ . ('/utilities/header.php');
 // Fonctions pour afficher la totalité des films ou un film par id
 require_once __DIR__ . ('/function/movies.fn.php');
 
-$movies = findAllMovies($db);
-
 ?>
 
 <div class="py-5">
-    <div class="text-center my-4">
+    <div class="text-center mb-5">
         <h1>Les films Utopia</h1>
     </div>
 

@@ -4,7 +4,6 @@
 // On lui passe en paramètre $config (tableau qui contient les valeurs de connexion)
 function getPDOlink($config)
 {
-
     // 2 - DSN de connexion (Data Server Name) :
     $dsn = 'mysql:dbname=' . $config['dbname'] . ';host=' . $config['dbhost'] . ';port=' . $config['dbport'];
 

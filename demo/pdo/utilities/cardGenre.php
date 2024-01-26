@@ -1,3 +1,9 @@
+<?php
+// @TODO!: Requête à débugguer, les films affichés ne correspondent pas à la catégorie.
+
+$genres = findAllGenres($db); // Récupère tous les genres de films 
+?>
+
 <div class="container">
     <div class="row row-cols-1 row-cols-md-2 g-4">
 
@@ -9,7 +15,6 @@
                         <h2 class="card-title"><?= $genre['name']; ?></h2>
                     </div>
                     <div class="card-body">
-
 
                         <!-- Récupère tous les films de ce genre -->
                         <?php $movies = findAllMoviesByGenre($db, $genre['name']); ?>

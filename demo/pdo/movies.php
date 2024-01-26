@@ -6,9 +6,6 @@ require_once __DIR__ . ('/utilities/header.php');
 // Fonctions pour afficher la totalité des films ou un film par id
 require_once __DIR__ . ('/function/movies.fn.php');
 
-// Récupère tous les genres
-$genres = findAllGenres($db);
-
 ?>
 
 <div class="py-5">
