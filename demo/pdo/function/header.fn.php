@@ -9,6 +9,6 @@ function isActive($page, $url)
     if (strpos($page, $url) !== FALSE) {
         // Si $url est trouvé dans $page, la fonction retourne 'active'.
         // Cela signifie que la classe 'active' est ajoutée à l'élément de navigation correspondant.
-        return 'active text-uppercase';
+        return 'active';
     }
 }
