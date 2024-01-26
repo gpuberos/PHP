@@ -70,18 +70,27 @@ function findPictureByMovie($db, $currentId)
     return $picture;
 }
 
+// Définition de la fonction getStar qui prend une note en paramètre
 function getStar($rating)
 {
-
+    // La note est divisée par 2 et arrondie à un chiffre après la virgule
+    // Cela permet de convertir une note sur 10 à une note sur 5 avec des demi-étoiles
     $starRating = round($rating / 2, 1);
+
+    // La note est séparée en deux parties : la partie entière et la partie décimale
     $ratingInt = explode(".", $starRating);
 
+    // Pour chaque point entier de la note, une étoile pleine est affichée
     for ($i = 0; $i < $ratingInt[0]; $i++) {
         echo '<div class="bi-star-fill"></div>';
     }
+
+    // Si la note contient une demi-étoile, elle est affichée
     if ($ratingInt[1] != 0) {
         echo '<div class="bi-star-half"></div>';
     }
+
+    // Si la note est inférieure à 5, une étoile vide est affichée
     if (5 - $starRating >= 1) {
         echo '<div class="bi-star"></div>';
     }

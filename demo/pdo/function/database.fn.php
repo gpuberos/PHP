@@ -22,6 +22,7 @@ function getPDOlink($config)
 
         // On retourne la valeur $db
         return $db;
+
     } catch (PDOException $e) {
         // On utilise l'objet PDOException 
         // On utilise une méthode getMessage() (une méthode est une fonction qui appartient à un objet)
