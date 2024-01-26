@@ -50,9 +50,9 @@ require_once dirname(__DIR__) . ('/function/header.fn.php');
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4 col-12 justify-content-end">
                     <li class="nav-item">
                         <a class="nav-link 
-                            <?= isActive($index_page, $current_url); ?>
-                            <?= isActive('/index.php', $current_url); ?>
-                            " aria-current="page" href="<?= $index_page; ?>">Accueil</a>
+                        <?= isActive($index_page, $current_url); ?>
+                        <?= isActive('/index.php', $current_url); ?>" 
+                        aria-current="page" href="<?= $index_page; ?>">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?= isActive($movies_page, $current_url); ?>" href="<?= $movies_page; ?>">Les films</a>
