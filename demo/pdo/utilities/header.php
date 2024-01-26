@@ -1,47 +1,16 @@
 <?php
 
-// Domaine par défaut :
-$domain = '/';
+// Etape de connexion à une base de données
+require_once dirname(__DIR__) . ('/config/config.php');
 
-// Configuration des pages :
-$index_page = $domain;
-$movies_page = $domain . 'movies.php';
-$movie_page = $domain . 'movie.php';
-$contact_page = $domain . 'contact.php';
+// Fonction qui retourne la connexion à notre base de données
+require_once dirname(__DIR__) . ('/function/database.fn.php');
 
-// Correspond au nom du fichier script, tout ce qui a après le nom de domaine c'est le script name
-$current_url = $_SERVER['SCRIPT_NAME'];
+$db = getPDOlink($config);
 
-// Titres des pages :
-$index_name = 'Les films de la semaine';
-$movies_name = 'Tous les films à l\'affiche';
-$contact_name = 'Contactez-nous';
+require_once dirname(__DIR__) . ('/config/headerConfig.php');
+require_once dirname(__DIR__) . ('/function/header.fn.php');
 
-// strpos() est une fonction PHP qui trouve la position de la première occurrence d’une sous-chaîne dans une chaîne. 
-// Si la sous-chaîne n’est pas trouvée, strpos() retourne FALSE
-// Donc, Si l'URL actuelle contient soit $index_page soit $index_page . 'index.php'
-if (strpos($index_page, $current_url) !== FALSE || strpos($index_page . 'index.php', $current_url) !== FALSE) :
-    $title = $index_name;
-
-// Sinon, si l'URL actuelle contient $movies_page
-elseif (strpos($movies_page, $current_url) !== FALSE) :
-    $title = $movies_name;
-
-// Sinon, si l'URL actuelle contient $contact_page
-elseif (strpos($contact_page, $current_url) !== FALSE) :
-    $title = $contact_name;
-
-endif;
-
-// function isActive($page, $url) {
-//     if (strpos($page, $url) !== FALSE) {
-//         return 'active';
-//     } else {
-//         return '';
-//     }
-// }
-
-// isActive($index_page, $current_url);
 
 ?>
 
@@ -81,10 +50,14 @@ endif;
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4 col-12 justify-content-end">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="<?= $index_page; ?>">Accueil</a></li>
+                        <a class="nav-link 
+                            <?= isActive($index_page, $current_url); ?>
+                            <?= isActive('/index.php', $current_url); ?>
+                            " aria-current="page" href="<?= $index_page; ?>">Accueil</a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?= $movies_page; ?>">Les films</a>
-                        </li>
+                        <a class="nav-link <?= isActive($movies_page, $current_url); ?>" href="<?= $movies_page; ?>">Les films</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Contact</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
