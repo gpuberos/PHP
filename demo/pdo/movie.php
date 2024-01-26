@@ -35,12 +35,16 @@ $path = $picture['pathImg'];
 
 ?>
 
-<div class="text-center my-2">
-    <h1>Détails du film</h1>
+<div class="py-3">
+    <div class="text-center my-2">
+        <h1>Détails du film</h1>
+    </div>
+
+    <!-- Affiche les informations du film. -->
+    <?php require_once __DIR__ . ('/utilities/cardMovie.php'); ?>
 </div>
 
-<!-- Affiche les informations du film. -->
-<?php require_once __DIR__ . ('/utilities/cardMovie.php'); ?>
+<?php require_once __DIR__ . ('/utilities/footer.php'); ?>
 
 </body>
 

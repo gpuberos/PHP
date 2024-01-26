@@ -113,3 +113,26 @@ function getStar($rating)
         echo '<div class="bi-star"></div>';
     }
 }
+
+// Fonction qu retourne tous les genres de la table movies
+function findAllGenres($db)
+{
+    // Requête SQL pour sélectionner la colonne `genre` de la table `movies`
+    $sql = "SELECT * FROM `genre`;";
+    // Exécute la requête SQL
+    $request = $db->query($sql);
+    // Récupère tous les résultats de la requête sous forme de tableau associatif
+    $genres = $request->fetchAll();
+    // Retourne les résultats
+    return $genres;
+}
+
+// Fonction pour récupérer tous les films d'un genre
+function findAllMoviesByGenre($db, $genre)
+{
+    // Requête SQL pour sélectionner tous les films d'un genre 
+    $sql = "SELECT * FROM `movies` INNER JOIN `genre` ON movies.genreID = genre.id WHERE genre.name = '$genre';";
+    $request = $db->query($sql);
+    $movies = $request->fetchAll();
+    return $movies;
+}
