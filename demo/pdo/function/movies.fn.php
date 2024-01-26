@@ -136,3 +136,17 @@ function findAllMoviesByGenre($db, $genre)
     $movies = $request->fetchAll();
     return $movies;
 }
+
+function findBestMovies($db)
+{
+    $sql = "SELECT * FROM `movies` ORDER BY `rating` DESC LIMIT 3;";
+
+    // On exécute la requête SQL sur la base de données avec la méthode query :
+    $request = $db->query($sql);
+
+    // On récupère le résultat de la requête SQL et on la stocke dans un tableau associatif contenant toutes les informations des 10 derniers films :
+    $movies = $request->fetchAll();
+
+    return $movies;
+}
+?>

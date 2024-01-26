@@ -15,14 +15,8 @@ $movies = findAllMovies($db);
         <h1>Les films Utopia</h1>
     </div>
 
-    <!-- Boucle qui parcourt chaque élément du tableau $movies et affiche un lien vers la page de détails pour chaque film. -->
-    <ul>
-        <?php foreach ($movies as $movie) : ?>
-            <li>
-                <a href="<?= $movie_page; ?>?id=<?= $movie['id']; ?>"><?= $movie['title']; ?></a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+    <!-- Affiche les 3 meilleurs films. -->
+    <?php require_once __DIR__ . ('/utilities/cardBestmovie.php'); ?>
 
 </div>
 
