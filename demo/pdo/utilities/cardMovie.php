@@ -16,7 +16,7 @@
             <span class="text-muted">
                 Année de réalisation : <?= $movie['year_released']; ?>
             </span>
-            
+
         </div>
         <div class="d-flex justify-content-between my-2">
             <h2>
@@ -44,6 +44,6 @@
             <h4 class="text-muted">De : <?= $movie['distributeur']; ?></h4>
             <h4 class="text-muted">Genre : <?= $movie['genre']; ?></h4>
         </div>
-        
+
     </div>
 </div>

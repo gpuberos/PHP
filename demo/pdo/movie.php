@@ -35,7 +35,7 @@ $path = $picture['pathImg'];
 
 ?>
 
-<div class="py-3">
+<div class="py-5">
     <div class="text-center my-2">
         <h1>Détails du film</h1>
     </div>

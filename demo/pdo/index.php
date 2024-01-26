@@ -18,7 +18,7 @@ require_once __DIR__ . ('/utilities/header.php');
 
 ?>
 
-<div class="py-3">
+<div class="py-5">
     <div class="text-center my-4">
         <h1>Les films Utopia</h1>
     </div>
