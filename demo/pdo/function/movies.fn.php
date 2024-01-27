@@ -131,7 +131,7 @@ function findAllGenres($db)
 function findAllMoviesByGenre($db, $genre)
 {
     // Requête SQL pour sélectionner tous les films d'un genre 
-    $sql = "SELECT * FROM `movies` INNER JOIN `genre` ON movies.genreID = genre.id WHERE genre.name = '$genre';";
+    $sql = "SELECT movies.id, movies.title, genre.name FROM `movies` INNER JOIN `genre` ON movies.genreID = genre.id WHERE genre.name = '$genre';";
     $request = $db->query($sql);
     $movies = $request->fetchAll();
     return $movies;

@@ -1,8 +1,4 @@
-<?php
-// @TODO!: Requête à débugguer, les films affichés ne correspondent pas à la catégorie.
-
-$genres = findAllGenres($db); // Récupère tous les genres de films 
-?>
+<?php $genres = findAllGenres($db); // Récupère tous les genres de films ?>
 
 <div class="container">
     <div class="row row-cols-1 row-cols-md-2 g-4">
@@ -17,11 +13,12 @@ $genres = findAllGenres($db); // Récupère tous les genres de films
                     <div class="card-body">
 
                         <!-- Récupère tous les films de ce genre -->
-                        <?php $movies = findAllMoviesByGenre($db, $genre['name']); ?>
+                        <?php $movies = findAllMoviesByGenre($db, $genre['name']);?>
                         <ul class="list-group list-group-flush">
                             <?php foreach ($movies as $movie) : ?>
                                 <li class="list-group-item">
                                     <a href="<?= $movie_page; ?>?id=<?= $movie['id']; ?>"><?= $movie['title']; ?></a>
+                                    
                                 </li>
                             <?php endforeach; ?>
                         </ul>

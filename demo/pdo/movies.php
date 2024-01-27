@@ -13,6 +13,7 @@ require_once __DIR__ . ('/function/movies.fn.php');
         <h1>Les films Utopia</h1>
     </div>
 
+    <!-- Affiche les films classé par genre. -->
     <?php require_once __DIR__ . ('/utilities/cardGenre.php'); ?>
 
 </div>

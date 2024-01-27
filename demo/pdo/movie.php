@@ -15,6 +15,7 @@ require_once __DIR__ . ('/function/movies.fn.php');
 
     <!-- Affiche les informations du film. -->
     <?php require_once __DIR__ . ('/utilities/cardMovie.php'); ?>
+
 </div>
 
 <?php require_once __DIR__ . ('/utilities/footer.php'); ?>
