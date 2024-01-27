@@ -13,12 +13,11 @@
                     <div class="card-body">
 
                         <!-- Récupère tous les films de ce genre -->
-                        <?php $movies = findAllMoviesByGenre($db, $genre['name']);?>
+                        <?php $movies = findAllMoviesByGenre($db, $genre['name']); ?>
                         <ul class="list-group list-group-flush">
                             <?php foreach ($movies as $movie) : ?>
                                 <li class="list-group-item">
                                     <a href="<?= $movie_page; ?>?id=<?= $movie['id']; ?>"><?= $movie['title']; ?></a>
-                                    
                                 </li>
                             <?php endforeach; ?>
                         </ul>
