@@ -1,9 +1,33 @@
-## Notes à compléter avec explications ...
+## Concepts de base de PDO, FETCH et FETCH ALL
 
 Ce qu'il faut retenir pour la connexion à la BDD :
 1. On défini nos variables d'environnement
 2. DSN de connexion (Data Server Name)
 3. On tente de se connecter à la base de données
+
+
+**DSN (Data Source Name)** :  c'est une chaine de caractère qui contient les informations nécessaires pour se connecter à une base de données. (host, port, dbname (nom de la base de données))
+
+PDO ou PHP Data Objects est une interface qui permet d'interagir avec la base de données à partir de PHP (elle permet de manipuler efficacement les données de manière sécurisé).
+
+`new PDO` est utilisé pour créer une nouvelle instance de la classe PDO, dans notre cas une connexion à la base de donnée en passant les paramètres DSN username et password.
+
+**FETCH** et **FETCH ALL** sont 2 méthodes utilisées pour récupérer les données de la base de données. 
+
+**Par défaut la constante PDO Fetch est BOTH** :  
+  
+Imaginez une boîte pleine d’objets, chaque objet a 2 étiquettes : 
+une avec un nom (comme "pomme") et une avec un numéro (comme "1"). Lorsque on cherche un objet, on peut le faire soit par son nom, soit par son numéro. C’est ce que fait `PDO::FETCH_BOTH` : il retourne un tableau où chaque valeur peut être accédée à la fois par le nom de la colonne et par l’indice numérique de la colonne.
+
+Dans ce cas le tableau est beaucoup **plus difficile à lire** et à comprendre car chaque valeur est dupliquée. En plus ça utilise beaucoup **plus de mémoire** car chaque **valeurs est stockée 2 fois**.
+
+Pour **FETCH ASSOC** :  
+  
+Imaginez que vous avez une boîte pleine d’objets différents. Chaque objet a une étiquette unique qui indique ce qu’il est. 
+Par exemple, un objet avec une étiquette "pomme" et un autre avec une étiquette "banane".
+
+Maintenant, disons qu'on veut trouver la "pomme" dans la boîte. Au lieu de chercher à tâtons, on va simplement lire les étiquettes jusqu’à ce qu'on trouves celle qui est nommé "pomme". C’est **beaucoup plus rapide** à faire qu'avec FETCH BOTH
+
 
 ## Fonction GROUP_CONCAT (Concaténation)
   
@@ -64,7 +88,7 @@ Depuis la table `movies`, champ `movies.id` => on va à la table intermédiaire 
 Une fonction s'écrit comme ça : (paramètre entre parenthèse).
 ```php
 function mafonction($parametres) {
-    
+    // Mon code
 }
 ```
 
@@ -211,9 +235,70 @@ star (etoile vide), star-fill (etoile pleine), star-half (etoile à moitié)
 
 ```php
 $starRating = round($movieRating/2);
-    for ($i=0; $i < $starRating ; $i++) { 
-        echo '<div class="bi-star-fill"></div>';
+for ($i=0; $i < $starRating ; $i++) { 
+    echo '<div class="bi-star-fill"></div>';
 }
 
 // $starRating = round($movie['rating']/2);
 ```
+
+### Version améliorée :
+
+Cette fonction convertit une note sur une échelle de 1 à 10 en une représentation visuelle d’étoiles sur une échelle de 1 à 5. Chaque point entier de la note est représenté par une étoile pleine, une demi-étoile est affichée si la note contient une demi-étoile, et une étoile vide est affichée si la note est inférieure à 5. Cela permet d’avoir une représentation visuelle claire et concise de la note.
+
+explode — Scinde une chaîne de caractères en segments
+
+```php
+// Définition de la fonction getStar qui prend une note en paramètre
+function getStar($rating)
+{
+    // La note est divisée par 2 et arrondie à un chiffre après la virgule
+    // Cela permet de convertir une note sur 10 à une note sur 5 avec des demi-étoiles
+    $starRating = round($rating / 2, 1);
+```
+Cette ligne prend la note d’origine (qui est sur une échelle de 1 à 10) et la convertit en une échelle de 1 à 5. C’est fait en divisant la note par 2. Le résultat est arrondi à un chiffre après la virgule pour permettre des demi-étoiles.
+
+```php
+    // La note est séparée en deux parties : la partie entière et la partie décimale
+    $ratingInt = explode(".", $starRating);
+```
+Cette ligne sépare la note en deux parties : la partie entière et la partie décimale. Par exemple, si la note est 4.5, alors `$ratingInt[0]` sera 4 et `$ratingInt[1]` sera 5.
+
+```php
+    // Pour chaque point entier de la note, une étoile pleine est affichée
+    for ($i = 0; $i < $ratingInt[0]; $i++) {
+        echo '<div class="bi-star-fill"></div>';
+    }
+```
+Cette boucle affiche une étoile pleine pour chaque point entier de la note. Par exemple, si la note est 4.5, alors 4 étoiles pleines seront affichées.
+
+```php
+    // Si la note contient une demi-étoile, elle est affichée
+    if ($ratingInt[1] != 0) {
+        echo '<div class="bi-star-half"></div>';
+    }
+```
+Cette condition vérifie si la note contient une demi-étoile. Si c’est le cas, une demi-étoile est affichée.
+
+```php
+    // Si la note est inférieure à 5, une étoile vide est affichée
+    if (5 - $starRating >= 1) {
+        echo '<div class="bi-star"></div>';
+    }
+}
+```
+Cette condition vérifie si la note est inférieure à 5. Si c’est le cas, une étoile vide est affichée pour compléter les 5 étoiles.
+
+
+# @TODO LIST
+
+A rechercher et documenter
+
+## DISTINCT
+
+## LIMIT & OFFSET
+
+Pour créer une pagination.
+
+Source :
+- https://www.guru99.com/fr/limit.html
