@@ -5,14 +5,51 @@ Ce qu'il faut retenir pour la connexion à la BDD :
 2. DSN de connexion (Data Server Name)
 3. On tente de se connecter à la base de données
 
+### DSN
 
-**DSN (Data Source Name)** :  c'est une chaine de caractère qui contient les informations nécessaires pour se connecter à une base de données. (host, port, dbname (nom de la base de données))
+**DSN (Data Source Name)** :  c'est une chaine de caractère qui contient les informations nécessaires pour se connecter à une base de données.
+
+```php
+$dsn = 'mysql:dbname=' . $config['dbname'] . ';host=' . $config['dbhost'] . ';port=' . $config['dbport'];
+```
+
+### PDO
 
 PDO ou PHP Data Objects est une interface qui permet d'interagir avec la base de données à partir de PHP (elle permet de manipuler efficacement les données de manière sécurisé).
 
 `new PDO` est utilisé pour créer une nouvelle instance de la classe PDO, dans notre cas une connexion à la base de donnée en passant les paramètres DSN username et password.
 
+```php
+// On instancie l'objet PDO :
+$db = new PDO($dsn, $config['dbuser'], $config['dbpass']);
+
+```
+
+### $db->exec()
+
+```php
+// On envoi nos requêtes en UTF-8 :
+$db->exec("SET NAMES utf8");
+```
+
+`$db->exec` est utilisé pour exécuter une instruction SQL sur la base de données `$db` est une instance de la classe PDO, et `exec` est une méthode de cette classe. L’opérateur -> est utilisé pour accéder aux méthodes et propriétés d’un objet en PHP. Donc, `$db->exec("SET NAMES utf8");` exécute l’instruction `SET NAMES utf8` sur la base de données.
+
+#### SET NAMES utf8 : 
+Cette instruction est utilisée pour définir le jeu de caractères utilisé pour envoyer des données depuis et vers le serveur de base de données `SET NAMES utf8` indique que le client (dans ce cas, votre script PHP) enverra des données au serveur en utilisant le jeu de caractères UTF-8, et que le serveur doit renvoyer les données en utilisant également l’UTF-8.
+
+**Sources :**
+- https://stackoverflow.com/questions/2159434/set-names-utf8-in-mysql
+- https://stackoverflow.com/questions/16488970/simple-php-explanation-whats-the-difference-between-the-arrow-operators
+
+### FETCH
+
 **FETCH** et **FETCH ALL** sont 2 méthodes utilisées pour récupérer les données de la base de données. 
+
+```php
+// On définit le mode fetch par défaut 
+// (si on ne fait pas le FETCH_ASSOC on reçoit les clés en double, donc on a 2 fois les mêmes informations) :
+$db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+```
 
 **Par défaut la constante PDO Fetch est BOTH** :  
   
@@ -27,7 +64,6 @@ Imaginez que vous avez une boîte pleine d’objets différents. Chaque objet a 
 Par exemple, un objet avec une étiquette "pomme" et un autre avec une étiquette "banane".
 
 Maintenant, disons qu'on veut trouver la "pomme" dans la boîte. Au lieu de chercher à tâtons, on va simplement lire les étiquettes jusqu’à ce qu'on trouves celle qui est nommé "pomme". C’est **beaucoup plus rapide** à faire qu'avec FETCH BOTH
-
 
 ## Fonction GROUP_CONCAT (Concaténation)
   
